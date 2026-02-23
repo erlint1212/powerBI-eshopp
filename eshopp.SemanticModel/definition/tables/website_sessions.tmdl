@@ -51,22 +51,12 @@ table website_sessions
 
 		annotation SummarizationSetBy = Automatic
 
-	column browser_os
-		dataType: string
-		lineageTag: bbccbe64-d226-49da-a1a4-ffab0b9b9a3d
-		summarizeBy: none
-		sourceColumn: browser_os
-
-		annotation SummarizationSetBy = Automatic
-
 	column session_purchase_made
 		dataType: boolean
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: d9d1f805-c211-4a01-aacd-c46690432002
 		summarizeBy: none
 		sourceColumn: session_purchase_made
-
-		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
@@ -98,15 +88,46 @@ table website_sessions
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column browser
+		dataType: string
+		lineageTag: 76966292-41fd-4def-b804-56d703144786
+		summarizeBy: none
+		sourceColumn: browser
+
+		annotation SummarizationSetBy = Automatic
+
+	column os
+		dataType: string
+		lineageTag: 48bda70a-c3cc-4a1b-98ee-92292660a69d
+		summarizeBy: none
+		sourceColumn: os
+
+		annotation SummarizationSetBy = Automatic
+
+	column os_on_device
+		dataType: string
+		lineageTag: 158b24f1-6fe7-4306-8dd0-6a4253a59c28
+		summarizeBy: none
+		sourceColumn: os_on_device
+
+		annotation SummarizationSetBy = Automatic
+
 	partition website_sessions = m
 		mode: import
 		source =
 				let
 				    Source = Csv.Document(File.Contents("C:\Users\confidenthampter\codebase\bootDev\dataviz-projec\website_sessions.csv"),[Delimiter=",", Columns=10, Encoding=1252, QuoteStyle=QuoteStyle.None]),
 				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"session_id", type text}, {"session_date", type date}, {"customer_id", Int64.Type}, {"store_id", Int64.Type}, {"device_type", type text}, {"browser_os", type text}, {"session_purchase_made", type logical}, {"session_duration_minutes", Int64.Type}, {"session_pages_visited", Int64.Type}, {"session_quality_score", type number}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"session_id", type text}, {"session_date", type date}, {"customer_id", Int64.Type}, {"store_id", Int64.Type}, {"device_type", type text}, {"browser_os", type text}, {"session_purchase_made", type logical}, {"session_duration_minutes", Int64.Type}, {"session_pages_visited", Int64.Type}, {"session_quality_score", type number}}),
+				    #"Split Column by Delimiter" = Table.SplitColumn(#"Changed Type", "browser_os", Splitter.SplitTextByDelimiter("|", QuoteStyle.Csv), {"browser_os.1", "browser_os.2"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"browser_os.1", type text}, {"browser_os.2", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"browser_os.1", "browser"}, {"browser_os.2", "os"}}),
+				    #"Inserted Merged Column" = Table.AddColumn(#"Renamed Columns", "os_on_device", each Text.Combine({[os], [device_type]}, " on "), type text),
+				    #"Replaced Value" = Table.ReplaceValue(#"Inserted Merged Column",null,0.5,Replacer.ReplaceValue,{"session_quality_score"})
 				in
-				    #"Changed Type"
+				    #"Replaced Value"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 

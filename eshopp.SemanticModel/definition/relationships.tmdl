@@ -12,3 +12,7 @@ relationship AutoDetected_5438549d-0c53-4370-af9a-ad26aae193e5
 	fromColumn: website_sessions.customer_id
 	toColumn: customers.customer_id
 
+relationship AutoDetected_9957b899-df94-4b40-852e-499fa8b8e80b
+	fromColumn: sales.customer_id
+	toColumn: customers.customer_id
+
