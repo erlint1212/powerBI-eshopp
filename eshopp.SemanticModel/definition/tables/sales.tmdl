@@ -1,6 +1,15 @@
 table sales
 	lineageTag: 058668c2-fd72-44f5-b80c-9a83623a0551
 
+	measure total_revenue = SUM(sales[discounted_price])
+		lineageTag: 5f7935c8-cb37-4eb2-a458-e88a77827d2d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure total_units_sold = SUM(sales[sale_quantity])
+		formatString: 0
+		lineageTag: 061e4a21-08b7-4a38-8c0e-3ae08fc7e74c
+
 	column sale_id
 		dataType: int64
 		formatString: 0
@@ -14,7 +23,7 @@ table sales
 		dataType: int64
 		formatString: 0
 		lineageTag: 0092e962-54dd-4b39-a906-f31f06a824a5
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: date_id
 
 		annotation SummarizationSetBy = Automatic
@@ -32,7 +41,7 @@ table sales
 		dataType: int64
 		formatString: 0
 		lineageTag: 53d46ef5-47ef-4ea7-ad49-67f6004888ca
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: product_id
 
 		annotation SummarizationSetBy = Automatic
@@ -41,7 +50,7 @@ table sales
 		dataType: int64
 		formatString: 0
 		lineageTag: a7220e01-b03d-4215-ba6d-88c45d7782e2
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: store_id
 
 		annotation SummarizationSetBy = Automatic
@@ -60,6 +69,22 @@ table sales
 		lineageTag: 37f53b56-dcf5-4baf-b288-1f80981dec80
 		summarizeBy: sum
 		sourceColumn: sale_discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column price = sales[sale_quantity] * RELATED(products[product_list_price])
+		lineageTag: 6ec93fcd-aa26-475d-b7ec-e2f1122312c8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discounted_price = sales[price] * (1 - sales[sale_discount])
+		lineageTag: 750f8a51-207b-4368-b232-0ab26c23f04b
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 

@@ -1,0 +1,64 @@
+table stores
+	lineageTag: e240dc44-9912-495f-8dc0-8cf2757f7f37
+
+	column store_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a64f97a-8bda-450e-9603-bbf84024fffe
+		summarizeBy: none
+		sourceColumn: store_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_name
+		dataType: string
+		lineageTag: 77b5ff17-acdd-42d7-a704-ad637330633b
+		summarizeBy: none
+		sourceColumn: store_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_type
+		dataType: string
+		lineageTag: 167661c1-d350-4f3d-a562-a34b16ef48aa
+		summarizeBy: none
+		sourceColumn: store_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column store_open_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e6521fec-1d27-4340-b8d2-fd1acbc69042
+		summarizeBy: none
+		sourceColumn: store_open_date
+
+		variation Variation
+			isDefault
+			relationship: 4ca978b9-c9b7-449d-a6c6-c05d57444cba
+			defaultHierarchy: LocalDateTable_fcdae325-c5b9-4e3d-a459-6263979266b6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column store_location
+		dataType: string
+		lineageTag: 74f9b1f3-e431-425a-a1cd-2c92578db316
+		summarizeBy: none
+		sourceColumn: store_location
+
+		annotation SummarizationSetBy = Automatic
+
+	partition stores = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\confidenthampter\codebase\bootDev\dataviz-projec\stores.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"store_id", Int64.Type}, {"store_name", type text}, {"store_type", type text}, {"store_open_date", type date}, {"store_location", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

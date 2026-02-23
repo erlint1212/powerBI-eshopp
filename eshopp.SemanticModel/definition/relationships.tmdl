@@ -16,3 +16,29 @@ relationship AutoDetected_9957b899-df94-4b40-852e-499fa8b8e80b
 	fromColumn: sales.customer_id
 	toColumn: customers.customer_id
 
+relationship 57767f13-20d3-47ae-8677-2df1c6766d0f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dates.date
+	toColumn: LocalDateTable_dd47da3b-78b1-4412-a917-6caf85590c28.Date
+
+relationship AutoDetected_ae4008cd-4d6a-4be1-9ce1-97c3a90e0b52
+	fromColumn: sales.date_id
+	toColumn: dates.date_id
+
+relationship 4ca978b9-c9b7-449d-a6c6-c05d57444cba
+	joinOnDateBehavior: datePartOnly
+	fromColumn: stores.store_open_date
+	toColumn: LocalDateTable_fcdae325-c5b9-4e3d-a459-6263979266b6.Date
+
+relationship AutoDetected_57f3698d-04b6-45a3-911d-09de897fd510
+	fromColumn: website_sessions.store_id
+	toColumn: stores.store_id
+
+relationship AutoDetected_ba867243-a57d-48a7-a393-65fea9db2b06
+	fromColumn: sales.store_id
+	toColumn: stores.store_id
+
+relationship 0f125767-5cff-edaf-e021-91f1887c5788
+	fromColumn: sales.product_id
+	toColumn: products.product_id
+
