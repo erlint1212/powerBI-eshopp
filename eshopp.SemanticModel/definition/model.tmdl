@@ -1,0 +1,22 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["customers","website_sessions"]
+
+ref table customers
+ref table DateTableTemplate_1b497614-3d2c-49d5-b8b5-877576465db5
+ref table LocalDateTable_ea1e4de3-39f9-4c80-bd78-1e37770e8979
+ref table website_sessions
+ref table LocalDateTable_f3bdb72f-fa9c-417c-89d2-60d797cce775
+
+ref cultureInfo en-GB
+
