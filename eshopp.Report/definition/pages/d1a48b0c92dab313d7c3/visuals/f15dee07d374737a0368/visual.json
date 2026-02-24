@@ -42,6 +42,48 @@
               },
               "queryRef": "customers.customer_avg_age",
               "nativeQueryRef": "customer_avg_age"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sales"
+                    }
+                  },
+                  "Property": "revenue_in_feb"
+                }
+              },
+              "queryRef": "sales.revenue_in_feb",
+              "nativeQueryRef": "revenue_in_feb"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "stores"
+                    }
+                  },
+                  "Property": "oldest_store_open_date"
+                }
+              },
+              "queryRef": "stores.oldest_store_open_date",
+              "nativeQueryRef": "oldest_store_open_date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "website_sessions"
+                    }
+                  },
+                  "Property": "session_quality_score_avg_scaled"
+                }
+              },
+              "queryRef": "website_sessions.session_quality_score_avg_scaled",
+              "nativeQueryRef": "session_quality_score_avg_scaled"
             }
           ]
         }
@@ -93,6 +135,48 @@
               }
             },
             "Property": "customer_avg_age"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "be218f447aae3c007520",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "sales"
+              }
+            },
+            "Property": "revenue_in_feb"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7e84408ed8b689e6d0de",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "stores"
+              }
+            },
+            "Property": "oldest_store_open_date"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ae43ef9003c257930a70",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "website_sessions"
+              }
+            },
+            "Property": "session_quality_score_avg_scaled"
           }
         },
         "type": "Advanced"
