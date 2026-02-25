@@ -1,0 +1,138 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "4e9aa004520d631ba3be",
+  "position": {
+    "x": 9.1866028708133971,
+    "y": 0,
+    "z": 0,
+    "height": 361.33971291866033,
+    "width": 630.81339712918668,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "gauge",
+    "query": {
+      "queryState": {
+        "MaxValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "website_sessions"
+                    }
+                  },
+                  "Property": "max_quality_score"
+                }
+              },
+              "queryRef": "website_sessions.max_quality_score",
+              "nativeQueryRef": "max_quality_score"
+            }
+          ]
+        },
+        "TargetValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "website_sessions"
+                    }
+                  },
+                  "Property": "target_quality_score"
+                }
+              },
+              "queryRef": "website_sessions.target_quality_score",
+              "nativeQueryRef": "target_quality_score"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "website_sessions"
+                    }
+                  },
+                  "Property": "session_quality_score_avg_scaled"
+                }
+              },
+              "queryRef": "website_sessions.session_quality_score_avg_scaled",
+              "nativeQueryRef": "session_quality_score_avg_scaled"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "website_sessions"
+                  }
+                },
+                "Property": "session_quality_score_avg_scaled"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "09a93f0318a50d290b4e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "website_sessions"
+              }
+            },
+            "Property": "session_quality_score_avg_scaled"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d72c4a2f117007765b10",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "website_sessions"
+              }
+            },
+            "Property": "target_quality_score"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5aa03f4396be2b8c00a0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "website_sessions"
+              }
+            },
+            "Property": "max_quality_score"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
