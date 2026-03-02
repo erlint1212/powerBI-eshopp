@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "2ee7fb259579d3c5c09a",
+  "name": "f0d657e01e12c26a020d",
   "position": {
-    "x": 8.178913738019169,
-    "y": 0,
-    "z": 0,
-    "height": 719.74440894568693,
-    "width": 1271.8210862619808,
-    "tabOrder": 0
+    "x": 9,
+    "y": 371,
+    "z": 1000,
+    "height": 349,
+    "width": 1271,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "ribbonChart",
+    "visualType": "lineClusteredColumnComboChart",
     "query": {
       "queryState": {
         "Category": {
@@ -23,30 +23,12 @@
                       "Entity": "dates"
                     }
                   },
-                  "Property": "date_weekday"
+                  "Property": "date_week"
                 }
               },
-              "queryRef": "dates.date_weekday",
-              "nativeQueryRef": "date_weekday",
+              "queryRef": "dates.date_week",
+              "nativeQueryRef": "date_week",
               "active": true
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "products"
-                    }
-                  },
-                  "Property": "product_category"
-                }
-              },
-              "queryRef": "products.product_category",
-              "nativeQueryRef": "product_category"
             }
           ]
         },
@@ -54,17 +36,45 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "sales"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "sales"
+                        }
+                      },
+                      "Property": "sale_quantity"
                     }
                   },
-                  "Property": "total_revenue"
+                  "Function": 0
                 }
               },
-              "queryRef": "sales.total_revenue",
-              "nativeQueryRef": "total_revenue"
+              "queryRef": "Sum(sales.sale_quantity)",
+              "nativeQueryRef": "Sum of sale_quantity"
+            }
+          ]
+        },
+        "Y2": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "sales"
+                        }
+                      },
+                      "Property": "sale_discount"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Avg(sales.sale_discount)",
+              "nativeQueryRef": "Average of sale_discount"
             }
           ]
         }
@@ -73,13 +83,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "sales"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "sales"
+                      }
+                    },
+                    "Property": "sale_quantity"
                   }
                 },
-                "Property": "total_revenue"
+                "Function": 0
               }
             },
             "direction": "Descending"
@@ -95,7 +110,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Category Rankings by Weekday'"
+                  "Value": "'Sales vs Avg Discount'"
                 }
               }
             }
