@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "7b88443c48aade20e445",
+  "name": "7d717e5ea55928b23926",
   "position": {
-    "x": 10,
-    "y": 370,
-    "z": 1000,
-    "height": 350,
-    "width": 1270,
-    "tabOrder": 1000
+    "x": 9.1866028708133971,
+    "y": 0,
+    "z": 0,
+    "height": 361.33971291866033,
+    "width": 1270.8133971291868,
+    "tabOrder": 0
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "areaChart",
     "query": {
       "queryState": {
         "Category": {
@@ -32,25 +32,30 @@
             }
           ]
         },
-        "Series": {
+        "Y": {
           "projections": [
             {
               "field": {
-                "Column": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "website_sessions"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "website_sessions"
+                        }
+                      },
+                      "Property": "session_duration_minutes"
                     }
                   },
-                  "Property": "device_type"
+                  "Function": 0
                 }
               },
-              "queryRef": "website_sessions.device_type",
-              "nativeQueryRef": "Count of device_type"
+              "queryRef": "Sum(website_sessions.session_duration_minutes)",
+              "nativeQueryRef": "Sum of session_duration_minutes"
             }
           ]
         },
-        "Y": {
+        "Y2": {
           "projections": [
             {
               "field": {
@@ -100,21 +105,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pages Visited by Date'"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "24D"
+                  "Value": "'Session Duration & Pages Over Time'"
                 }
               }
             }
@@ -123,5 +114,61 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0c2aa7b386b81db82ae4",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "website_sessions"
+                  }
+                },
+                "Property": "session_duration_minutes"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "058c623f82cc569034d6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "website_sessions"
+              }
+            },
+            "Property": "session_date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "81c88bb097cd907e9c15",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "website_sessions"
+                  }
+                },
+                "Property": "session_pages_visited"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

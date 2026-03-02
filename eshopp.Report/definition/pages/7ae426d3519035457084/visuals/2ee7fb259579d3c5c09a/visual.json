@@ -1,19 +1,38 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
-  "name": "3de1a6c20982026ce737",
+  "name": "2ee7fb259579d3c5c09a",
   "position": {
-    "x": 9.1866028708133971,
-    "y": 370.5263157894737,
-    "z": 2000,
-    "height": 349.09090909090912,
-    "width": 1270.8133971291868,
-    "tabOrder": 2000
+    "x": 8.178913738019169,
+    "y": 0,
+    "z": 0,
+    "height": 719.74440894568693,
+    "width": 1271.8210862619808,
+    "tabOrder": 0
   },
   "visual": {
-    "visualType": "donutChart",
+    "visualType": "ribbonChart",
     "query": {
       "queryState": {
         "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dates"
+                    }
+                  },
+                  "Property": "date_weekday"
+                }
+              },
+              "queryRef": "dates.date_weekday",
+              "nativeQueryRef": "date_weekday",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
           "projections": [
             {
               "field": {
@@ -27,8 +46,7 @@
                 }
               },
               "queryRef": "products.product_category",
-              "nativeQueryRef": "product_category",
-              "active": true
+              "nativeQueryRef": "product_category"
             }
           ]
         },
@@ -70,21 +88,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {
-      "labels": [
-        {
-          "properties": {
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'inside'"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
     "visualContainerObjects": {
       "title": [
         {
@@ -92,7 +95,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Revenue by Category'"
+                  "Value": "'Category Rankings by Weekday'"
                 }
               }
             }
@@ -101,5 +104,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5f89ac50d0a945eca504",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "sales"
+              }
+            },
+            "Property": "total_revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7075fe266c5cd0e6a51b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "products"
+              }
+            },
+            "Property": "product_category"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "daa3a2ebd176da7c400a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dates"
+              }
+            },
+            "Property": "date_weekday"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

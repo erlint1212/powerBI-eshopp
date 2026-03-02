@@ -88,51 +88,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "09a93f0318a50d290b4e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "website_sessions"
-              }
-            },
-            "Property": "session_quality_score_avg_scaled"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d72c4a2f117007765b10",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "website_sessions"
-              }
-            },
-            "Property": "target_quality_score"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5aa03f4396be2b8c00a0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "website_sessions"
-              }
-            },
-            "Property": "max_quality_score"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
