@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "31eec5636d57c06a2c06",
   "position": {
-    "x": 842,
-    "y": 0,
-    "z": 5001,
-    "height": 358,
-    "width": 438,
-    "tabOrder": 5001
+    "x": 640,
+    "y": 219.42857142857142,
+    "z": 6000,
+    "height": 262.09523809523807,
+    "width": 640,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "donutChart",
@@ -130,26 +130,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "be2245e026a4d4616463",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "geographies"
-                  }
-                },
-                "Property": "geography_population"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "eeee0fde01a25c362d11",
+        "name": "494d367aed9d45da0e0a",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -168,7 +149,7 @@
         "type": "Categorical"
       },
       {
-        "name": "82243f6f5da3a37b5898",
+        "name": "e4cf864a56294d9a3b2a",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -187,7 +168,7 @@
         "type": "Categorical"
       },
       {
-        "name": "784ad6981ed30654d527",
+        "name": "aa3254418b492b400846",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -204,6 +185,25 @@
           }
         },
         "type": "Categorical"
+      },
+      {
+        "name": "7cf13d46d456d3e7d303",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "geographies"
+                  }
+                },
+                "Property": "geography_population"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

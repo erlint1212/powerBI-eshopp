@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "47acb60daa64c0290b49",
   "position": {
-    "x": 9.1866028708133971,
+    "x": 9.1428571428571423,
     "y": 0,
     "z": 0,
-    "height": 361.33971291866033,
-    "width": 630.81339712918668,
+    "height": 67.047619047619051,
+    "width": 630.85714285714289,
     "tabOrder": 0
   },
   "visual": {
@@ -19,16 +19,13 @@
               {
                 "textRuns": [
                   {
-                    "value": "CEO Dashboard"
+                    "value": "CEO Dashboard",
+                    "textStyle": {
+                      "fontSize": "32pt"
+                    }
                   }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": ""
-                  }
-                ]
+                ],
+                "horizontalTextAlignment": "center"
               }
             ]
           }

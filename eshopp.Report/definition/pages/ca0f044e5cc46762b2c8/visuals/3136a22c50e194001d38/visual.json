@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "3136a22c50e194001d38",
   "position": {
-    "x": 842.1052631578948,
-    "y": 358.2775119617225,
+    "x": 0,
+    "y": 466.28571428571428,
     "z": 5000,
-    "height": 361.33971291866033,
-    "width": 437.89473684210532,
+    "height": 252.95238095238096,
+    "width": 640,
     "tabOrder": 5000
   },
   "visual": {
@@ -85,7 +85,21 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "2cf23b503d3e711ed488",
+        "name": "17a6141bb9ccae897612",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "products"
+              }
+            },
+            "Property": "product_brand"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "afb4be984e5705ed68c4",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -102,20 +116,6 @@
           }
         },
         "type": "Advanced"
-      },
-      {
-        "name": "48d59bf844ab266cbc99",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "products"
-              }
-            },
-            "Property": "product_brand"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "6e9c2684c029403a548a",
   "position": {
-    "x": 376.6507177033493,
-    "y": 361.33971291866033,
+    "x": 640,
+    "y": 466.28571428571428,
     "z": 4000,
-    "height": 358.2775119617225,
-    "width": 456.26794258373207,
+    "height": 252.95238095238096,
+    "width": 640,
     "tabOrder": 4000
   },
   "visual": {
@@ -85,7 +85,21 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "f2884560ea6be53dd0e4",
+        "name": "a14e400b0477c8c62d11",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "stores"
+              }
+            },
+            "Property": "store_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3fe53eb40c3eb0a00725",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -102,20 +116,6 @@
           }
         },
         "type": "Advanced"
-      },
-      {
-        "name": "ce75a5e4a56010305427",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "stores"
-              }
-            },
-            "Property": "store_name"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }
