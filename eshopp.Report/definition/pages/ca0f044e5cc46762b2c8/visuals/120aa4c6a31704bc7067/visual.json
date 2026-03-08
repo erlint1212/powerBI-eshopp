@@ -57,7 +57,8 @@
                 }
               },
               "queryRef": "products.product_category",
-              "nativeQueryRef": "product_category"
+              "nativeQueryRef": "Product Category",
+              "displayName": "Product Category"
             }
           ]
         },
@@ -75,69 +76,42 @@
                 }
               },
               "queryRef": "sales.discounted_revenue",
-              "nativeQueryRef": "discounted_revenue"
+              "nativeQueryRef": "Revenue",
+              "displayName": "Revenue"
             }
           ]
         }
       }
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Revenue Trend by Product Category'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fc7e858ad48276bb921b",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "PropertyVariationSource": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "customers"
-                      }
-                    },
-                    "Name": "Variation",
-                    "Property": "customer_signup_date"
-                  }
-                },
-                "Hierarchy": "Date Hierarchy"
-              }
-            },
-            "Level": "Month"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2c044e45a3c0126c4143",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "products"
-              }
-            },
-            "Property": "product_category"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ce2cda2f64aade4ad8a0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "sales"
-              }
-            },
-            "Property": "discounted_revenue"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

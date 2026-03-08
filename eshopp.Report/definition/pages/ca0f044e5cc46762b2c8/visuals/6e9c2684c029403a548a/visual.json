@@ -3,9 +3,9 @@
   "name": "6e9c2684c029403a548a",
   "position": {
     "x": 640,
-    "y": 466.28571428571428,
+    "y": 465.71428571428572,
     "z": 4000,
-    "height": 252.95238095238096,
+    "height": 252.85714285714286,
     "width": 640,
     "tabOrder": 4000
   },
@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "stores.store_name",
-              "nativeQueryRef": "store_name",
-              "active": true
+              "nativeQueryRef": "Nearest Store",
+              "active": true,
+              "displayName": "Nearest Store"
             }
           ]
         },
@@ -51,7 +52,8 @@
                 }
               },
               "queryRef": "Sum(website_sessions.session_duration_minutes)",
-              "nativeQueryRef": "Sum of session_duration_minutes"
+              "nativeQueryRef": "Total Session Durations",
+              "displayName": "Total Session Durations"
             }
           ]
         }
@@ -80,12 +82,41 @@
         "isDefaultSort": true
       }
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Session Durations by Store'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
       {
-        "name": "a14e400b0477c8c62d11",
+        "name": "159590b4a53b043ee50d",
         "field": {
           "Column": {
             "Expression": {
@@ -99,7 +130,7 @@
         "type": "Categorical"
       },
       {
-        "name": "3fe53eb40c3eb0a00725",
+        "name": "c12fa7d2d976000574a9",
         "field": {
           "Aggregation": {
             "Expression": {
