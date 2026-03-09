@@ -3,9 +3,9 @@
   "name": "120aa4c6a31704bc7067",
   "position": {
     "x": 0,
-    "y": 219.42857142857142,
+    "y": 167.14285714285717,
     "z": 3000,
-    "height": 246.85714285714286,
+    "height": 270,
     "width": 640,
     "tabOrder": 3000
   },
@@ -105,6 +105,19 @@
               "expr": {
                 "Literal": {
                   "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

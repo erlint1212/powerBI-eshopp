@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
   "name": "4f1b4ea42e42d614d809",
   "position": {
-    "x": 326.09523809523807,
-    "y": 67.047619047619051,
+    "x": 325.71428571428572,
+    "y": 67.142857142857153,
     "z": 2000,
-    "height": 112.76190476190476,
-    "width": 313.90476190476193,
+    "height": 100,
+    "width": 314.28571428571428,
     "tabOrder": 2000
   },
   "visual": {
@@ -28,7 +28,8 @@
               },
               "queryRef": "sales.total_units_sold",
               "nativeQueryRef": "Total Units Sold",
-              "displayName": "Total Units Sold"
+              "displayName": "Total Units Sold",
+              "format": "#,0"
             }
           ]
         }
@@ -51,6 +52,40 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "sales.total_units_sold"
+          }
+        }
+      ],
+      "label": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'aboveValue'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "sales.total_units_sold"
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -81,6 +116,19 @@
               "expr": {
                 "Literal": {
                   "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

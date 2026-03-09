@@ -3,10 +3,10 @@
   "name": "01cb39fc72ac5be5946c",
   "position": {
     "x": 0,
-    "y": 67.047619047619051,
+    "y": 67.142857142857153,
     "z": 1000,
-    "height": 152.38095238095238,
-    "width": 326.09523809523807,
+    "height": 100,
+    "width": 325.71428571428572,
     "tabOrder": 1000
   },
   "visual": {
@@ -28,7 +28,8 @@
               },
               "queryRef": "sales.discounted_revenue",
               "nativeQueryRef": "Total Revenue",
-              "displayName": "Total Revenue"
+              "displayName": "Total Revenue",
+              "format": "#,0"
             }
           ]
         }
@@ -74,6 +75,20 @@
           "selector": {
             "id": "default"
           }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "sales.discounted_revenue"
+          }
         }
       ],
       "label": [
@@ -89,7 +104,7 @@
             "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'belowValue'"
+                  "Value": "'aboveValue'"
                 }
               }
             }
@@ -136,6 +151,19 @@
         }
       ],
       "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
         {
           "properties": {
             "show": {
